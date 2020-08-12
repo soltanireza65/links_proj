@@ -1,0 +1,5 @@
+.idea/
+media/
+db.sqlite3
+Tasks
+Pipfile.lock

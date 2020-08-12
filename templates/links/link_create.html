@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Add Link
+{% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100 mt-3">
+            <h3 class="d-block">Add new link</h3>
+            <form method="post" class="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="fieldWrapper">
+                        {#                                {{ field.errors }}#}
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            {{ field }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="d-flex justify-content-center mt-3 login_container">
+                    <button type="submit" name="button" class="btn login_btn btn-outline-dark">Add</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Public Profile
+{% endblock %}
+{% block content %}
+    <!-- profile -->
+    <div class="container mt-5 bg__">
+        <div class="row">
+            <!-- profile card -->
+            <div class="col-lg-3 col-md-12">
+                <!-- Grid column -->
+
+                <!-- Card -->
+                <div class="card testimonial-card shadow mb-5">
+                    <!-- Background color -->
+                    <div class="card-up indigo"></div>
+
+                    <!-- Avatar -->
+                    <div class="avatar mx-auto white">
+                        <img src="{% static 'img/profilePic.png' %}" class="rounded-circle img-responsive"
+                             alt="profilePic"/>
+                    </div>
+
+                    <div class="card-body">
+                        <!-- accont Name -->
+                        <h4 class="card-title mt-2"><strong>Accont Name</strong></h4>
+
+                        <hr class="mb-3"/>
+                        <!-- job title -->
+                        <div class="text-left">
+                            <h5>Bio</h5>
+                            <p>
+                                Delectus impedit saepe officiis ab aliquam repellat, rem
+                                totam unde ducimus.
+                            </p>
+                        </div>
+                        <button class="btn btn-block btn-color">cantact</button>
+                    </div>
+                    <!-- Card -->
+                </div>
+                <!-- Card -->
+            </div>
+            <!-- link list view -->
+            <div class="col-lg-9 col-md-12 px-5">
+                {% for link in links %}
+
+                    <div class="listItem shadow pl-5 pt-3 pb-1 bg-white font-link border-card mb-2">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5>title</h5>
+                                <p class="text-muted">
+                            <span><img width="20" class="globe-outline" src="{% static 'img/globe-outline.svg' %}"
+                                       alt=""/>
+                            url</span>
+                                </p>
+                            </div>
+                            <div class="mr-3 mt-2">
+                                <img width="20" class="arrow-redo-outline" src="{% static 'img/globe-outline.svg' %}"
+                                     alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- link list view -->
+    </div>
+    <!-- profile -->
+
+{% endblock %}

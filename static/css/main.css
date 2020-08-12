@@ -1,0 +1,702 @@
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #18ffff;
+  outline: 1px solid slategrey;
+}
+
+.user_card {
+  height: 400px;
+  width: 350px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: 10px solid black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+.user_card .brand_logo_container {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -75px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+.user_card .brand_logo_container .brand_logo {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.user_card .form_container {
+  margin-top: 100px;
+}
+.user_card .form_container .input-group-text {
+  background: #000000 !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.user_card .form_container .input_user,
+.user_card .form_container .input_email,
+.user_card .form_container .input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.user_card .form_container .login_container {
+  padding: 0 2rem;
+}
+.user_card .form_container .login_container .login_btn {
+  width: 100%;
+  background: #000000 !important;
+  color: white !important;
+}
+.user_card .form_container .login_container .login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+
+.navbar {
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.app_footer {
+  box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+:root {
+  --container-bg-color: rgba(0, 0, 0, 0.781);
+  --left-bg-color: rgba(0, 0, 0, 0.7);
+  --left-button-hover-color: rgb(255, 255, 255);
+  --left-button-hover-text-color: rgb(0, 0, 0);
+  --right-bg-color: hsla(173, 29%, 48%, 0.451);
+  --right-button-hover-color: rgb(255, 255, 255);
+  --right-button-hover-text-color: rgb(0, 0, 0);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Libre Franklin", sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.font-weight-lighter {
+  font-weight: lighter !important;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.button {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  height: 2.5rem;
+  padding-top: 1.3rem;
+  width: 15rem;
+  text-align: center;
+  color: #fff;
+  border: #fff solid 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.btn {
+  border-radius: 0 !important;
+}
+
+.split.left .button:hover {
+  background-color: var(--left-button-hover-color);
+  border-color: var(--left-button-hover-color);
+  color: var(--left-button-hover-text-color);
+}
+
+.split.right .button:hover {
+  background-color: var(--right-button-hover-color);
+  border-color: var(--right-button-hover-color);
+  color: var(--right-button-hover-text-color);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left: 0;
+  background-size: cover;
+}
+
+.split.left:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--left-bg-color);
+}
+
+.split.right {
+  right: 0;
+  background-size: cover;
+}
+
+.split.right:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--right-bg-color);
+}
+
+.split.left,
+.split.right,
+.split.right:before,
+.split.left:before {
+  transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-left .right:before {
+  z-index: 2;
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+.hover-right .left:before {
+  z-index: 2;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 12rem;
+  }
+}
+@media (max-height: 700px) {
+  .button {
+    top: 70%;
+  }
+}
+.link-count {
+  background-color: #a4b9ba;
+  color: #363635;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hide the browser's default checkbox */
+.link_toggle {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* When the checkbox is checked, add a blue background */
+.link_toggle:checked ~ .checkmark {
+  background-color: #000000;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.link_toggle:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+:root {
+  --container-bg-color: rgba(0, 0, 0, 0.781);
+  --left-bg-color: rgba(0, 0, 0, 0.7);
+  --left-button-hover-color: rgb(255, 255, 255);
+  --left-button-hover-text-color: rgb(0, 0, 0);
+  --right-bg-color: hsla(173, 29%, 48%, 0.451);
+  --right-button-hover-color: rgb(255, 255, 255);
+  --right-button-hover-text-color: rgb(0, 0, 0);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.font-weight-lighter {
+  font-weight: lighter !important;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.button {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  height: 2.5rem;
+  padding-top: 1.3rem;
+  width: 15rem;
+  text-align: center;
+  color: #fff;
+  border: #fff solid 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.split.left .button:hover {
+  background-color: var(--left-button-hover-color);
+  border-color: var(--left-button-hover-color);
+  color: var(--left-button-hover-text-color);
+}
+
+.split.right .button:hover {
+  background-color: var(--right-button-hover-color);
+  border-color: var(--right-button-hover-color);
+  color: var(--right-button-hover-text-color);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left: 0;
+  background-size: cover;
+}
+
+.split.left:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--left-bg-color);
+}
+
+.split.right {
+  right: 0;
+  background-size: cover;
+}
+
+.split.right:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--right-bg-color);
+}
+
+.split.left,
+.split.right,
+.split.right:before,
+.split.left:before {
+  -webkit-transition: var(--speed) all ease-in-out;
+  transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-left .right:before {
+  z-index: 2;
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+.hover-right .left:before {
+  z-index: 2;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 12rem;
+  }
+}
+@media (max-height: 700px) {
+  .button {
+    top: 70%;
+  }
+}
+.navbarMargin {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.footer-margin {
+  margin-left: -150px;
+  margin-right: -150px;
+}
+
+.navbarPadding {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.profileImg {
+  /* margin-right: 5px; */
+  float: left;
+  /* 50% 50% centers image in div */
+  background-size: auto 100%;
+  /* Interchange this value depending on prefering width vs. height */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.testimonial-card .card-up {
+  height: 120px;
+  overflow: hidden;
+}
+
+.testimonial-card .avatar {
+  width: 120px;
+  margin-top: -60px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+
+.testimonial-card .avatar img {
+  width: 100%;
+}
+
+.testimonial-card .card-body {
+  text-align: center;
+}
+
+.card-wrapper .card-up {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-wrapper .card-up img {
+  vertical-align: middle;
+}
+
+.indigo {
+  background-color: #a4b9ba !important;
+}
+
+.card-wrapper .avatar {
+  display: block;
+  width: 120px;
+  margin-top: -60px;
+  overflow: hidden;
+}
+
+.card-wrapper .avatar img {
+  width: 100%;
+  background: none repeat scroll 0 0 #fff;
+  border: 5px solid #fff;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
+  box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
+}
+
+.font-link {
+  font-size: 15px;
+  font-style: italic;
+}
+
+.border-card {
+  border-left: 0.6em solid #a4b9ba;
+}
+
+.listItem:hover {
+  -webkit-transform: scale(1.01, 1.01);
+  transform: scale(1.01, 1.01);
+}
+
+.listItem:hover .arrow-redo-outline {
+  display: block;
+}
+
+.arrow-redo-outline {
+  height: 20px;
+  width: 20px;
+  opacity: 50%;
+  display: none;
+}
+
+.globe-outline {
+  height: 15px;
+  width: 15px;
+  opacity: 50%;
+}
+
+.click {
+  background-color: #b2c9cf;
+  color: #363635;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.testimonial-card .card-up {
+  height: 120px;
+  overflow: hidden;
+}
+
+.testimonial-card .avatar {
+  width: 120px;
+  margin-top: -60px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+
+.testimonial-card .avatar img {
+  width: 100%;
+}
+
+.testimonial-card .card-body {
+  text-align: center;
+}
+
+.card-wrapper .card-up {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-wrapper .card-up img {
+  vertical-align: middle;
+}
+
+.indigo {
+  background-color: #a4b9ba !important;
+}
+
+.card-wrapper .avatar {
+  display: block;
+  width: 120px;
+  margin-top: -60px;
+  overflow: hidden;
+}
+
+.card-wrapper .avatar img {
+  width: 100%;
+  background: none repeat scroll 0 0 #fff;
+  border: 5px solid #fff;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
+  box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
+}
+
+.font-link {
+  font-size: 15px;
+  font-style: italic;
+}
+
+.border-card {
+  border-left: 0.6em solid #a4b9ba;
+}
+
+.listItem:hover {
+  -webkit-transform: scale(1.01, 1.01);
+  transform: scale(1.01, 1.01);
+}
+
+.listItem:hover .arrow-redo-outline {
+  display: block;
+}
+
+.arrow-redo-outline {
+  height: 20px;
+  width: 20px;
+  opacity: 50%;
+  display: none;
+}
+
+.globe-outline {
+  height: 15px;
+  width: 15px;
+  opacity: 50%;
+}
+
+.click {
+  background-color: #b2c9cf;
+  color: #363635;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 15px;
+}
+
+:root {
+  --color1: #f6f7f9;
+  --color2: #dde8ee;
+  --navbar-background-color: #dde8ee;
+  --background-color: #c3d0d9;
+  --color4: #b2c9cf;
+  --btn-color: #a4b9ba;
+  --btn-color-hover: #589f97;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #c3d0d9;
+  min-height: 100vh;
+}
+
+.bg__ {
+  background-color: #c3d0d9;
+}
+
+.btn-color {
+  background-color: var(--btn-color);
+  border-radius: 0em !important;
+}
+
+.btn-color:hover {
+  background-color: var(--btn-color-hover);
+  color: white;
+}
+
+.navbar-bg {
+  background-color: var(--navbar-background-color);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
+  box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
+}
+
+/*# sourceMappingURL=main.css.map */
+
+/*# sourceMappingURL=main.css.map */

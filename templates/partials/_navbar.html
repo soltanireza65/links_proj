@@ -1,0 +1,81 @@
+{% load static %}
+<header class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light navbarMargin navbarPadding navbar-bg"
+         style="background-color:#DDE8EE;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">MANY.LINK</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {% if request.user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item mr-5">
+                            <a class="nav-link active" aria-current="page" href="#">LINK</a>
+                        </li>
+                        <li class="nav-item mr-5">
+                            <a class="nav-link" href="#">PROFILE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">EDIT</a>
+                        </li>
+                    </ul>
+                {% endif %}
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0 pl-6">
+                    <li class="nav-item">
+                        <div class="border bg-light">
+                            {% if request.user.is_authenticated %}
+                                <img class="profileImg" src="{% static 'img/profilePic.png' %}" alt=""/>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-expanded="false">
+                            {{ request.user.username }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Account</a></li>
+                            <li>
+                                <hr class="dropdown-divider"/>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+{#<nav class="container-fluid navbar navbar-expand-lg navbar-light">#}
+{#    <a class="navbar-brand" href="{% url 'index' %}">Links</a>#}
+{#    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"#}
+{#            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">#}
+{#        <span class="navbar-toggler-icon"></span>#}
+{#    </button>#}
+{#    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">#}
+{#        <div class="navbar-nav">#}
+{#            {% if user.is_authenticated %}#}
+{#                <a class="nav-item nav-link {% if 'profile' in request.path %}active{% endif %}" href="#">Profile</a>#}
+{#                <a class="nav-item nav-link {% if 'appearance' in request.path %}active{% endif %}" href="{% url 'appearance' %}">Appearance</a>#}
+{#                <a class="nav-item nav-link {% if 'stats' in request.path %}active{% endif %}" href="{% url 'stats' %}">Stats</a>#}
+{#                <a class="nav-item nav-link {% if 'settings' in request.path %}active{% endif %}" href="{% url 'settings' %}">Settings</a>#}
+{#            {% endif %}#}
+{#        </div>#}
+{#        <div class="navbar-nav ml-auto">#}
+{##}
+{#            {% if not user.is_authenticated %}#}
+{#                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>#}
+{#                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>#}
+{#            {% endif %}#}
+{#            {% if user.is_authenticated %}#}
+{#                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>#}
+{#            {% endif %}#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#</nav>#}
