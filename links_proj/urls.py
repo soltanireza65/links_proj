@@ -5,7 +5,8 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 
 from accounts.views import public_profile, login, register, logout, profile_edit
-from links.views import link_list, link_create, link_clicked, appearance, stats, settings as link_settings, link_edit
+from links.views import link_list, link_create, link_clicked, appearance, stats, settings as link_settings, link_edit, \
+    link_delete
 from .views import index
 
 urlpatterns = [
@@ -13,6 +14,7 @@ urlpatterns = [
     # path('links/', include('links.urls')),
     path('links/', link_list, name='link_list'),
     path('links/create/', link_create, name='link_create'),
+    path('links/delete/<int:link_id>', link_delete, name='link_delete'),
     path('links/edit/<int:link_id>', link_edit, name='link_edit'),
     path('links/link_clicked/', link_clicked, name='link_clicked'),
     # path('links/appearance/', appearance, name='appearance'),

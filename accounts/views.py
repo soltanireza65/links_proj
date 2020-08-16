@@ -43,7 +43,7 @@ def profile_edit(request):
         form = ProfileEditForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
-            return redirect('link_list')
+            return redirect('public_profile')
         else:
             messages.error(request, 'Failed to Update')
             return redirect('profile_edit')

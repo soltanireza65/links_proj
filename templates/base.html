@@ -15,14 +15,16 @@
     {#    <link href="{% static 'mdb/css/mdb.min.css' %}" rel="stylesheet">#}
     <link href="{% static 'css/main.min.css' %}" rel="stylesheet">
 </head>
-<body style="background-color:#C3D0D9;">
+<body>
 {% include 'partials/_navbar.html' %}
 {% include 'partials/_alerts.html' %}
 
+<div class="page_container h-100">
 
-{% block content %}
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
+</div>
 
 {% include 'partials/_footer.html' %}
 <!-- JQuery -->

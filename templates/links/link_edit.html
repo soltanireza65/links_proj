@@ -7,38 +7,30 @@
 
 {% block content %}
 
-
-
-
-
-
     <div class="container mt-5 bg__">
     <div class="row mt-5">
         <div class="col-lg-12">
             <div class="card shadow mb-5 mx-5 border-card">
 
                 <div class="card-body">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mx-2">
                         <h4 class="card-title mt-2">Add link</h4>
+                        <button class="btn btn-color px-3" type="submit"><i class="fas fa-trash-alt" data-toggle="modal"
+                                                                            data-target="#confirm_delete"></i></button>
                     </div>
-
                     <hr class="mb-3"/>
-
                     <form action="" method="post"
                           enctype="multipart/form-data">{% csrf_token %}
-
                         <div class="form-group mx-2 mt-3">{{ form.title }} </div>
                         <div class="form-group mx-2 mt-3">{{ form.url }} </div>
                         <div class="form-group mx-2 mt-3">{{ form.description }} </div>
-
-                        <label style="margin-left: 10px" for="file_input" class="file-upload">{{ form.image.label }}</label>
+                        <label style="margin-left: 10px" for="file_input"
+                               class="file-upload">{{ form.image.label }}</label>
                         <div class="form-group mx-2 mt-3">{{ form.image }} </div>
-
                         <label style="margin-left: 10px" class="checkbox_container">Is Active
                             {{ form.is_active }}
                             <span class="checkmark"></span>
                         </label>
-
                         <hr class="mt-5 mb-3"/>
                         <div class="d-flex justify-content-between mx-5">
                             <a class="btn btn-color p" href="{% url 'link_list' %}">
@@ -52,4 +44,31 @@
         </div>
 
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="confirm_delete" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are You sure</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are You sure
+                </div>
+                <div class="modal-footer">
+                    <form action="{% url 'link_delete' link.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-color" type="submit"><i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}
+
