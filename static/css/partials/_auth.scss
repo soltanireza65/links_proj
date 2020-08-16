@@ -15,26 +15,8 @@
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
 
-  .brand_logo_container {
-    position: absolute;
-    height: 170px;
-    width: 170px;
-    top: -75px;
-    border-radius: 50%;
-    background: #ffffff;
-    padding: 10px;
-    text-align: center;
-
-    .brand_logo {
-      height: 150px;
-      width: 150px;
-      border-radius: 50%;
-      //border: 2px solid white;
-    }
-  }
-
   .form_container {
-    margin-top: 100px;
+    margin-top: 4vh;
 
     .input-group-text {
       //background: #3cddee !important;
@@ -52,7 +34,7 @@
     }
 
     .login_container {
-      padding: 0 2rem;
+      //padding: 0 2rem;
 
       .login_btn {
         width: 100%;

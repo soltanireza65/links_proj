@@ -6,28 +6,85 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="d-flex flex-column justify-content-center align-items-center h-100 mt-3">
-            <h3 class="d-block">Add new link</h3>
-            <form method="post" class="" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="fieldWrapper">
-                        {#                                {{ field.errors }}#}
-                        <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            {{ field }}
+    <div class="container mt-5 bg__">
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="card shadow mb-5 mx-5 border-card">
+
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mt-2">Add link</h4>
                         </div>
+                        <hr class="mb-3"/>
+                        <form action="{% url 'link_create' %}" method="post"
+                              enctype="multipart/form-data">{% csrf_token %}
+                            <div class="form-group mx-2 mt-3">{{ form.title }} </div>
+                            <div class="form-group mx-2 mt-3">{{ form.url }} </div>
+                            <div class="form-group mx-2 mt-3">{{ form.description }} </div>
+
+
+{#                            <label style="margin-left: 10px" for="file_input"#}
+{#                                   class="file-upload">{{ form.image.label }}</label>#}
+{#                            <div class="form-group mx-2 mt-3">{{ form.image }} </div>#}
+
+                            <div class="custom-file mx-2">
+                                <input type="file" class="custom-file-input" id="customFile" name="image">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+
+
+                            <hr class="mt-5 mb-3"/>
+                            <div class="d-flex justify-content-between mx-5">
+                                <a class="btn btn-color p" href="{% url 'link_list' %}">
+                                    Cancel
+                                </a>
+                                <button class="btn btn-color" type="submit">Save</button>
+                            </div>
+                        </form>
                     </div>
-                {% endfor %}
-                <div class="d-flex justify-content-center mt-3 login_container">
-                    <button type="submit" name="button" class="btn login_btn btn-outline-dark">Add</button>
                 </div>
-            </form>
+            </div>
 
         </div>
-    </div>
 
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+        'use strict';
+
+        ;(function (document, window, index) {
+            var inputs = document.querySelectorAll('.inputfile');
+            Array.prototype.forEach.call(inputs, function (input) {
+                var label = input.nextElementSibling,
+                    labelVal = label.innerHTML;
+
+                input.addEventListener('change', function (e) {
+                    var fileName = '';
+                    if (this.files && this.files.length > 1)
+                        fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                    else
+                        fileName = e.target.value.split('\\').pop();
+
+                    if (fileName)
+                        label.querySelector('span').innerHTML = fileName;
+                    else
+                        label.innerHTML = labelVal;
+                });
+
+                // Firefox bug fix
+                input.addEventListener('focus', function () {
+                    input.classList.add('has-focus');
+                });
+                input.addEventListener('blur', function () {
+                    input.classList.remove('has-focus');
+                });
+            });
+        }(document, window, 0));
+    </script>
 {% endblock %}

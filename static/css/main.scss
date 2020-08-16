@@ -1,122 +1,90 @@
 @import "partials/scrollbar";
+@import "partials/input";
+@import "partials/snackbar";
 @import "partials/auth";
-@import "partials/navbar";
-@import "partials/footer";
-@import "partials/landing";
-@import "partials/link";
+//@import "partials/navbar";
+//@import "partials/footer";
+//@import "partials/landing";
+//@import "partials/link";
+@import "partials/switch";
+//@import "partials/file-input";
+@import "partials/controlls";
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.message {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+
+
+}
+
+//.landing_page{
+//  display: flex;
+//  flex-direction: column;
+//
+//}
+//.custom-file-input{
+//  background-color: red;
+//}
+
+//.avatar_input {
+//  color: transparent;
+//}
+//.avatar_input::-webkit-file-upload-button {
+//  visibility: hidden;
+//}
+//
+//.avatar_input::before {
+//  content: 'Select some files';
+//  display: inline-block;
+//  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+//  border: 1px solid #999;
+//  border-radius: 3px;
+//  padding: 5px 8px;
+//  outline: none;
+//  white-space: nowrap;
+//  -webkit-user-select: none;
+//  cursor: pointer;
+//  text-shadow: 1px 1px #fff;
+//  font-weight: 700;
+//  font-size: 10pt;
+//}
+//
+//.avatar_input:hover::before {
+//  border-color: black;
+//}
+//
+//.avatar_input:active::before {
+//  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+//}
 
 html,
-body, {
+body {
   margin: 0;
   padding: 0;
   height: 100vh;
   overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
-
-/* Hide the browser's default checkbox */
-.link_toggle {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-
-
-/* When the checkbox is checked, add a blue background */
-.link_toggle:checked ~ .checkmark {
-  background-color: #000000;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.link_toggle:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-//Links
-//img {
-//  height: auto;
-//  width: 100%;
-//}
-//.hover-btn {
-//  background-color: #e65100;
-//  border-radius: 50px;
-//  color: white;
-//}
-//.hover-btn:hover,
-//.hover-btn:focus,
-//.hover-btn:active {
-//  background-color: #f57c00;
-//}
-//
-//@media (max-width: 740px) {
-//  html,
-//  body,
-//  header,
-//  .intro-2 {
-//    height: 1200px;
-//  }
-//}
-//
-//@media (min-width: 800px) and (max-width: 850px) {
-//  html,
-//  body,
-//  header,
-//  .intro-2 {
-//    height: 1200px;
-//  }
-//}
-//
-//.avatar-pic {
-//  width: 100px;
-//}
-//.table_color {
-//  background-color: #e0e0e0;
-//  color: black;
-//}
-//.btn-add-link {
-//  background-color: #e0e0e0;
-//  border-color: #e0e0e0;
-//  color: black;
-//}
-//.btn-add-link:hover {
-//  border-color: salmon;
-//}
-//
-//
-
+/* landing page */
 :root {
   --container-bg-color: rgba(0, 0, 0, 0.781);
   --left-bg-color: rgba(0, 0, 0, 0.7);
@@ -130,15 +98,6 @@ body, {
   --speed: 1000ms;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
 
 .font-weight-lighter {
   font-weight: lighter !important;
@@ -158,6 +117,7 @@ h1 {
 .button {
   display: block;
   position: absolute;
+  //border-color: black;
   left: 50%;
   top: 40%;
   height: 2.5rem;
@@ -165,7 +125,7 @@ h1 {
   width: 15rem;
   text-align: center;
   color: #fff;
-  border: #fff solid 0.2rem;
+  border: #ffffff solid 0.2rem;
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -187,9 +147,9 @@ h1 {
 }
 
 .container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  //position: relative;
+  //width: 100%;
+  //height: 100%;
   //background: var(--container-bg-color);
 }
 
@@ -275,6 +235,7 @@ h1 {
   }
 }
 
+/* navbar */
 .navbarMargin {
   margin-left: -20px;
   margin-right: -20px;
@@ -302,6 +263,7 @@ h1 {
   border-radius: 50%;
 }
 
+/* profile card */
 .testimonial-card .card-up {
   height: 120px;
   overflow: hidden;
@@ -359,97 +321,7 @@ h1 {
   font-style: italic;
 }
 
-.border-card {
-  border-left: 0.6em solid #a4b9ba;
-}
-
-.listItem:hover {
-  -webkit-transform: scale(1.01, 1.01);
-  transform: scale(1.01, 1.01);
-}
-
-.listItem:hover .arrow-redo-outline {
-  display: block;
-}
-
-.arrow-redo-outline {
-  height: 20px;
-  width: 20px;
-  opacity: 50%;
-  display: none;
-}
-
-.globe-outline {
-  height: 15px;
-  width: 15px;
-  opacity: 50%;
-}
-
-.click {
-  background-color: #b2c9cf;
-  color: #363635;
-  border-radius: 50%;
-  padding: 5px;
-  font-size: 15px;
-}
-
-.testimonial-card .card-up {
-  height: 120px;
-  overflow: hidden;
-}
-
-.testimonial-card .avatar {
-  width: 120px;
-  margin-top: -60px;
-  overflow: hidden;
-  border: 5px solid #fff;
-  border-radius: 50%;
-}
-
-.testimonial-card .avatar img {
-  width: 100%;
-}
-
-.testimonial-card .card-body {
-  text-align: center;
-}
-
-.card-wrapper .card-up {
-  height: 200px;
-  overflow: hidden;
-}
-
-.card-wrapper .card-up img {
-  vertical-align: middle;
-}
-
-.indigo {
-  background-color: #a4b9ba !important;
-}
-
-.card-wrapper .avatar {
-  display: block;
-  width: 120px;
-  margin-top: -60px;
-  overflow: hidden;
-}
-
-.card-wrapper .avatar img {
-  width: 100%;
-  background: none repeat scroll 0 0 #fff;
-  border: 5px solid #fff;
-}
-
-.shadow {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
-  box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
-}
-
-.font-link {
-  font-size: 15px;
-  font-style: italic;
-}
-
+/* card link list */
 .border-card {
   border-left: 0.6em solid #a4b9ba;
 }
@@ -519,7 +391,141 @@ body {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
   box-shadow: 0px 0px 5px 0px rgba(184, 170, 184, 0.61);
 }
-/*# sourceMappingURL=main.css.map */
 
+/* form  */
+.border-input {
+  border-radius: 0;
+  height: 50px;
+}
+
+.border-input-card {
+  border-radius: 0;
+}
+
+.trash-link {
+  position: absolute;
+  margin-right: 20px;
+  margin-top: 10px;
+  height: 20px;
+  width: 20px;
+  opacity: 50%;
+}
+
+.trash-link:hover {
+  transform: scale(1.09, 1.09);
+  opacity: 100%;
+}
+
+/* avatar photo */
+.profile-photo {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* avatar photo button upload file */
+.btn-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  cursor: inherit;
+  display: block;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  color: #589f97;
+  font-weight: bold;
+  background-color: #f1f1ef;
+  box-shadow: 1px 10px 20px 0px rgba(218, 215, 206, 0.8);
+  width: 200px;
+  height: 50px;
+  line-height: 30px;
+  border: 2px solid #589f97;
+  border-radius: 0;
+}
+
+.btn-file:hover {
+  background: #589f97;
+  color: #ffffff;
+}
+
+/* delete icon */
+.trash-link {
+  position: absolute;
+  margin-right: 20px;
+  margin-top: 10px;
+  height: 20px;
+  width: 20px;
+  opacity: 50%;
+}
+
+.trash-link:hover {
+  transform: scale(1.09, 1.09);
+  opacity: 100%;
+}
+
+/* link page */
+
+/* swich input */
+
+/* link countainer */
+.link-count {
+  background-color: #a4b9ba;
+  color: rgb(54, 54, 53);
+  border-radius: 50%;
+  //padding: 5px 5px 5px 5px ;
+  padding-top: 3px;
+  width: 25px;
+  height: 25px;
+}
+
+
+.active {
+  //background-color: #5dfff9;
+  //font-weight: bold;
+  margin: 0;
+}
+
+.active .nav-link {
+  color: #d90000;
+}
+
+
+.form_input,
+.form_input:hover,
+.form_input:focus {
+  border: none;
+  background-color: #e0e0e0;
+}
+
+.fileinput,
+.fileinput:hover,
+.fileinput:focus {
+  //border: none;
+  //background-color: #e0e0e0;
+  //visibility: hidden;
+  display: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+
+}
 
 

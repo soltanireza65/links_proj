@@ -4,3 +4,4 @@ db.sqlite3
 Tasks
 Pipfile.lock
 .vscode/settings.json
+.vscode/launch.json

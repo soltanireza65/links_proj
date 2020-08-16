@@ -2,19 +2,15 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_POST
-
-from rest_framework.response import Response
-from rest_framework.views import APIView
-
 from common.decorators import ajax_required
-from links.forms import LinkCreateForm
+from links.forms import LinkCreateForm, LinkUpdateForm
 from links.models import Link
 from stats.models import Click
 
 
 @login_required
 def link_list(request):
+    # links = Link.objects.filter(user=request.user, is_active=True)
     links = Link.objects.filter(user=request.user)
     # profile_link = User.objects.filter()
     profile_link = request.user.username
@@ -28,8 +24,8 @@ def link_list(request):
 
 @ajax_required
 def link_clicked(request):
-    id = request.POST.get('id')
-    link = Link.objects.filter(id=id).get()
+    link_id = request.POST.get('id')
+    link = Link.objects.filter(id=link_id).get()
     click = Click.objects.create(link=link)
     click.save()
     link.num_clicks += 1
@@ -39,6 +35,7 @@ def link_clicked(request):
     print('++========================++')
     if request.is_ajax():
         return JsonResponse({
+            'section': 'links',
             'status': 'ok',
             'num_clicks': link.num_clicks
         })
@@ -64,6 +61,25 @@ def link_create(request):
         'section': 'links',
     }
     return render(request, 'links/link_create.html', context)
+
+
+def link_edit(request, link_id):
+    link = Link.objects.get(id=link_id)
+    form = LinkUpdateForm(instance=link)
+
+    if request.method == "POST":
+        form = LinkUpdateForm(request.POST, instance=link)
+        if form.is_valid():
+            # cd = form.cleaned_data
+            form.save()
+            messages.success(request, 'Link Updated')
+            return redirect('link_list')
+    context = {
+        'form': form,
+        'section': 'links',
+    }
+
+    return render(request, 'links/link_edit.html', context)
 
 
 @login_required

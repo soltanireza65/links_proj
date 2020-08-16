@@ -9,81 +9,65 @@
 
 
     {% csrf_token %}
-    {#    {% for link in links %}#}
-    {#        <p> Click Me</p>#}
-    {#        <a id="{{ link.id }}" class="link_addr" href="{{ link.url }}"#}
-    {#           onclick="IncClick('{{ link.id }}')">{{ link.title }}<br></a>#}
-    {#    {% endfor %}#}
-    {##}
-    {#    <div class="text-center">#}
-    {#        <a class="" href="{% url 'link_create' %}"> Add link</a>#}
-    {#    </div>#}
-    {##}
-    {#    <div class="mx-auto my-10">#}
-    {#        <h2 class="">Your profile link</h2>#}
-    {##}
-    {#        <p class=""><strong>Copy this</strong> and set it as your website link on you Instagram profile:</p>#}
-    {#        <div class="flex mt-2 mb-10 md:mb-0">#}
-    {#            <input type="text" id="public-profile-url" class="" value="{{ profile_link }}">#}
-    {#            <button class="" data-clipboard="" data-clipboard-target="#public-profile-url">#}
-    {#                Copy#}
-    {#            </button>#}
-    {#        </div>#}
-    {#    </div>#}
-
 
     <div class="container-fluid w-100">
         <!-- main -->
         <!-- profile -->
         <div class="container mt-5 bg__">
             <div class="d-flex justify-content-between mb-4">
-                <div>
+                <div class="d-flex">
                     <span>Link</span>
-                    <span class="p-1 link-count">{{ links.count }}</span>
+                    <div class="link-count text-center ml-2">{{ links.count }}</div>
                 </div>
                 <div>
                     <a class="btn btn-color" href="{% url 'link_create' %}">+ Add Link</a>
                 </div>
+
             </div>
             <hr/>
+
             <div class="d-flex flex-wrap">
                 {% for link in links %}
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card shadow mb-5">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h4 class="card-title mt-2">title</h4>
-                                        <p class="text-muted">
-                                        <span class="d-flex ">
+                    {#                    {% if link.is_active %}#}
+                    <a href="{{ link.url }}" class="link_card" style="box-sizing: border-box"
+                       onclick="IncClick('{{ link.id }}')">
+                        <div class="col-lg-4 col-md-12">
+                            <div class=" card shadow mb-5 border-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h4 class="card-title mt-2">{{ link.title }}</h4>
+                                            <span class="d-flex flex-column justify-content-between align-items-start">
                                             <img width="20" class="globe-outline mr-2"
                                                  src="{% static 'img/globe-outline.svg' %}" alt=""/>
-                                            {{ link.url }}
+                                            <p class="text-muted mb-0">
+                                            {{ link.url|truncatechars:30 }}
+                                            </p>
                                         </span>
-                                        </p>
+                                        </div>
+                                        <!-- TODO add link to submit -->
+{#                                        <form action="" method="post" class="">#}
+{#                                            {% csrf_token %}#}
+{#                                        </form>#}
                                     </div>
-                                    <!-- TODO add link to submit -->
-                                    <form action="{% url '' %}" method="post" class="">
-                                        {% csrf_token %}
-                                        <label class="container">
-                                            <input class="link_toggle" type="checkbox" checked="checked" name="link_toggle">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </form>
-                                </div>
-                                <hr class="mb-3"/>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <span class="p-1 click">10</span>
-                                        <span>click</span>
-                                    </div>
-                                    <div>
-                                        <a class="btn btn-color" style="background-color:#A4B9BA;">Edite</a>
+                                    <hr class="mb-3"/>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="link-count text-center">{{ link.num_clicks }}</div>
+                                            {#                                            <span class="p-1 click">{{ link.num_clicks }}</span>#}
+                                            <span class="ml-2"> click</span>
+                                        </div>
+                                        <div>
+                                            <a href="{% url 'link_edit' link.id %}" class="btn btn-color"
+                                               style="background-color:#A4B9BA;">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+                    </a>
+                    {#                    {% endif %}#}
 
                 {% endfor %}
             </div>

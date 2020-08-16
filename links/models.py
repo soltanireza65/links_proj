@@ -7,7 +7,7 @@ from django.db import models
 
 
 def path_and_rename(instance, filename):
-    upload_to = 'links/%Y/%m/%d/'
+    upload_to = 'links/'
     ext = filename.split('.')[-1]
     # get filename
     if instance.pk:
@@ -17,6 +17,9 @@ def path_and_rename(instance, filename):
         filename = '{}.{}'.format(uuid4().hex, ext)
     # return the whole path to the file
     return os.path.join(upload_to, filename)
+
+
+# from common.path_rename import path_and_rename
 
 
 class Link(models.Model):

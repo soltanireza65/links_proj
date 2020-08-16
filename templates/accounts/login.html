@@ -6,32 +6,35 @@
 {% block content %}
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
-            <div class="user_card">
-                <div class="d-flex justify-content-center">
-                    <div class="brand_logo_container">
-                        <img src="{% static 'img/branch.jpg' %}" class="brand_logo" alt="Logo">
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center form_container">
-                      <form method="post">
+            <div class="user_card" style="height: 400px;">
+                <div class="px-4 form_container">
+                    <form method="post" class="mb-3">
                         {% csrf_token %}
-                        {% for field in form %}
-                            <div class="fieldWrapper">
-                                {{ field.errors }}
-                                <div class="input-group mb-3">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    </div>
-                                    {{ field }}
-                                </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                        {% endfor %}
+                            {{ form.username }}
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            {{ form.password }}
+                        </div>
+
                         <div class="d-flex justify-content-center mt-3 login_container">
                             <button type="submit" name="button" class="btn login_btn">Login</button>
                         </div>
                     </form>
-                </div>
+                    <hr class="mt-4 mb-3"/>
 
+                    <a class="d-block" href="{% url 'reset_password' %}" style="font-size: 0.8rem; color: red">Password
+                        Forgotten</a>
+                    <a href="{% url 'register' %}" class="ml-auto " style="font-size: 0.8rem">Not Registered yet?</a>
+
+                </div>
             </div>
         </div>
     </div>

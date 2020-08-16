@@ -3,72 +3,195 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="{% static 'css/main.min.css' %}"/>
+    <title>landing page</title>
+    {#        <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}"/>#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Cabin:700" rel="stylesheet" type="text/css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            color: white;
+            background-color: black;
+            font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        #about {
+            background-color: black;
+        }
+
+        h1 {
+            font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        {#font-size: 5rem;#} font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        p {
+        {#font-size: 3rem;#} line-height: 35px;
+            padding-bottom: 10px;
+        }
+
+        header {
+            text-align: center;
+            height: auto;
+            width: 100%;
+            background-size: cover;
+            color: white;
+            padding: 200px 0;
+        }
+
+        header a {
+            color: white;
+            font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .btn {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .btn-circle {
+            font-size: 28px;
+            height: 55px;
+            width: 55px;
+            line-height: 45px;
+            border: 2px solid white;
+            border-radius: 100%;
+            margin-top: 20px;
+            background: transparent;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-circle:focus,
+        .btn-circle:hover {
+            color: white;
+            outline: none;
+            background: #589f97;
+        }
+
+        .content-section {
+            padding: 100px 0;
+        }
+
+        .btn-default {
+            border: 1px solid #589f97;
+            font-size: 18px;
+            background: transparent;
+            color: #589f97;
+            border-radius: 10px;
+        }
+
+        .btn-default:focus,
+        .btn-default:hover {
+            color: black;
+            border: 1px solid #589f97;
+            outline: none;
+            background-color: #589f97;
+        }
+
+        footer p {
+            font-size: 15px;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+    </style>
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="container">
-    <div class="split left" style="background-color:black;">
-        <h1>
-            <strong><span style="font-size: 3rem;">A</span></strong
-            ><span class="font-weight-lighter">s many.links</span>
-            <br/>
-            <strong><span style="font-size: 3rem;">O</span></strong
-            ><span class="font-weight-lighter">n your Instagram</span> <br/>
-            <strong><span style="font-size: 3rem;">P</span></strong
-            ><span class="font-weight-lighter">rofile as you want</span>
-        </h1>
+<body id="topPage">
+<header class="hero">
+    <div class="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-xs-12 col-lg-offset-2">
+                    <h1 class="brand-heading" style="font-size: 5rem">Many Link</h1>
+                    <p class="text" style="font-size: 3rem">
+                        As many.links On your Instagram
 
-        <a href="{% url 'register' %}" class="button">Sign Up</a>
+                        <br/>
+                        Profile as you want
+                    </p>
+                    <a href="#about" class="btn btn-circle js-csroll-trigger">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="split right" style="background-color:#fff;">
-        <h1>
-            <strong><span style="font-size: 3rem;">MANYLINK</span></strong
-            ><span class="font-weight-lighter"> puts all the links you want</span>
-            <br/>
-            <strong><span style="font-size: 3rem;">TO</span></strong
-            ><span class="font-weight-lighter">
-            share on one simple, pretty page</span
-        >
-            <br/>
-            <strong><span style="font-size: 3rem;">SO</span></strong
-            ><span class="font-weight-lighter"> you only have to share that.</span
-        ><br/>
-            <strong><span style="font-size: 3rem;">YOUR</span></strong
-            ><span class="font-weight-lighter">
-            followers will never miss one again.</span
-        >
-        </h1>
+</header>
 
-        <a href="{% url 'login' %}" class="button">SING IN</a>
+<section id="about" class="content-section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-xs-12 col-lg-offset-2">
+                <h1 style="font-size: 3rem">About Many Link</h1>
+                <p style="font-size: 2rem">
+                    MANY LINK puts all the links you want TO share on one simple,
+                    pretty page SO you only have to share that. YOUR followers will
+                    never miss one again
+                </p>
+            </div>
+        </div>
     </div>
-</div>
-<!-- partial -->
-<script>
-    const left = document.querySelector(".left");
-    const right = document.querySelector(".right");
-    const container = document.querySelector(".container");
+</section>
 
-    left.addEventListener("mouseenter", () => {
-        container.classList.add("hover-left");
-    });
+<section id="contact" class="content-section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-xs-12 col-lg-offset-2">
+                <p>
+                    See how many people visited your page and clicked your links
+                </p>
 
-    left.addEventListener("mouseleave", () => {
-        container.classList.remove("hover-left");
-    });
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'public_profile' request.user.username %}"
+                               class="btn btn-default btn-lg mb-2">Go to your profile</a>
+                        {% else %}
+                            <a href="{% url 'register' %}" class="btn btn-default btn-lg">Sign UP</a>
+                        {% endif %}
+                    </li>
+                    <li>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="btn btn-default btn-lg">Sign out</a>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-default btn-lg">Sign In</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
-    right.addEventListener("mouseenter", () => {
-        container.classList.add("hover-right");
-    });
+<div id="map"></div>
 
-    right.addEventListener("mouseleave", () => {
-        container.classList.remove("hover-right");
-    });
-
-</script>
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; <a href="#">PubCoders</a> 2020</p>
+    </div>
+</footer>
 </body>
 </html>
