@@ -38,7 +38,7 @@ body,
 .page_container {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  //height: 100vh;
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
   background-color: #c3d0d9;
@@ -46,6 +46,12 @@ body,
 
 }
 
+#footer{
+  position: absolute;
+  //width: 100%;
+  margin: 0;
+  bottom: 0;
+}
 /* landing page */
 :root {
   --container-bg-color: rgba(0, 0, 0, 0.781);
@@ -202,10 +208,6 @@ h1 {
   margin-right: -20px;
 }
 
-.footer-margin {
-  margin-left: -150px;
-  margin-right: -150px;
-}
 
 .navbarPadding {
   padding-left: 50px;

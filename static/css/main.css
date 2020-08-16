@@ -268,10 +268,15 @@ body,
 .page_container {
   margin: 0;
   padding: 0;
-  height: 100vh;
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
   background-color: #c3d0d9;
+}
+
+#footer {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
 }
 
 /* landing page */
@@ -417,11 +422,6 @@ h1 {
 .navbarMargin {
   margin-left: -20px;
   margin-right: -20px;
-}
-
-.footer-margin {
-  margin-left: -150px;
-  margin-right: -150px;
 }
 
 .navbarPadding {
