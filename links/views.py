@@ -76,10 +76,24 @@ def link_edit(request, link_id):
             return redirect('link_list')
     context = {
         'form': form,
+        'link': link,
         'section': 'links',
     }
 
     return render(request, 'links/link_edit.html', context)
+
+
+def link_delete(request, link_id):
+    if request.method == "POST":
+        link = Link.objects.get(id=link_id).delete()
+        messages.success(request, 'Link Deleted')
+        return redirect('link_list')
+    context = {
+        # 'form': form,
+        'section': 'links',
+    }
+
+    return render(request, 'links/links.html', context)
 
 
 @login_required

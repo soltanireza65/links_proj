@@ -18,17 +18,14 @@
                     <div class="card-up indigo"></div>
 
                     <!-- Avatar -->
-                    <div class="avatar mx-auto white">
-                        <img src="
-
-
-
-
-
-
-
-                                {% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'img/profilePic.png' %}{% endif %}"
-                             class="rounded-circle img-responsive" alt="profilePic"/>
+                    <div class="avatar mx-auto white" >
+                        <img  height="100" src="
+                        {% if user.profile.avatar %}
+                        {{ user.profile.avatar.url }}
+                        {% else %}
+                        {% static 'img/profilePic.png' %}
+                        {% endif %}
+                        " class="rounded-circle img-responsive" alt="profilePic"/>
                     </div>
 
                     <div class="card-body">
@@ -67,7 +64,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 {#                            <img class="" width="50" src="{{ link.image.url }}" alt="">#}
                                 <div class="rounded-circle align-middle" style="flex: 1">
-{#                                    <img class="rounded-circle" width="50" src="{% static 'img/link.jpg' %}" alt="">#}
+                                    {#                                    <img class="rounded-circle" width="50" src="{% static 'img/link.jpg' %}" alt="">#}
                                     {% if link.image %}
                                         <img class="rounded-circle" width="50" src="{{ link.image.url }}" alt="">
                                     {% else %}
