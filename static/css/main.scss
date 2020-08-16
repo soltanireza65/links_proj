@@ -1,4 +1,4 @@
-@import "partials/scrollbar";
+// @import "partials/scrollbar";
 @import "partials/input";
 @import "partials/snackbar";
 @import "partials/auth";
@@ -31,8 +31,6 @@ a:active {
   top: 60px;
   left: 50%;
   transform: translateX(-50%);
-
-
 }
 
 //.landing_page{
@@ -81,7 +79,7 @@ body {
   padding: 0;
   height: 100vh;
   overflow-x: hidden;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* landing page */
@@ -97,7 +95,6 @@ body {
   --other-width: 25%;
   --speed: 1000ms;
 }
-
 
 .font-weight-lighter {
   font-weight: lighter !important;
@@ -488,7 +485,6 @@ body {
   height: 25px;
 }
 
-
 .active {
   //background-color: #5dfff9;
   //font-weight: bold;
@@ -498,7 +494,6 @@ body {
 .active .nav-link {
   color: #d90000;
 }
-
 
 .form_input,
 .form_input:hover,
@@ -525,7 +520,4 @@ input[type="file"] {
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
-
 }
-
-

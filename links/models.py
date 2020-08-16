@@ -23,13 +23,13 @@ def path_and_rename(instance, filename):
 
 
 class Link(models.Model):
-    order = models.IntegerField
+    # order = models.IntegerField
     title = models.CharField(max_length=255)
     # link_id = models.CharField(max_length=255) #User_id + self.id
     url = models.URLField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='links')
     # image = models.ImageField(upload_to='links/%Y/%m/%d/')
-    image = models.ImageField(upload_to=path_and_rename)
+    image = models.ImageField(upload_to=path_and_rename, null=True, blank=True)
     description = models.TextField(max_length=1000, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
