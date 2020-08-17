@@ -27,13 +27,13 @@
                     <li class="nav-item">
                         <div class="border bg-light">
                             {% if request.user.is_authenticated %}
-
                                 {% if request.user.profile.avatar %}
                                     <img style="background-image:url({{ request.user.profile.avatar.url }});"
-                                         class="profileImg img-fluid" src="{{ request.user.profile.avatar.url }}" alt=""/>
+                                         class="profileImg img-fluid" src="{{ request.user.profile.avatar.url }}"
+                                         alt=""/>
                                 {% else %}
-{#                                    <img style="background-image:url({% static 'img/profilePic.png' %});"#}
-{#                                         class="profileImg img-fluid" src="" alt=" Profile Image"/>#}
+                                    <img style="background-image:url({% static 'img/profilePic.png' %});"
+                                         class="profileImg img-fluid" src="" alt=" Profile Image"/>
                                 {% endif %}
                             {% endif %}
                         </div>
@@ -42,7 +42,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-expanded="false">
-                                {{ request.user.profile.display_name }}
+                                {% if request.user.profile.display_name %}
+                                    {{ request.user.profile.display_name }}
+                                {% else %}
+                                    {{ request.user.username }}
+
+                                {% endif %}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url 'profile_edit' %}">Edit Profile</a>

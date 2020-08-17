@@ -6,34 +6,42 @@
 {% block content %}
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100 ">
-            <div class="user_card mt-3" style="height: 450px;">
+            <div class="user_card" style="">
                 <div class="px-4 form_container">
                     <form method="post">
                         {% csrf_token %}
-                        <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            {{ form.username }}
-                        </div>
+{#                        {{ form.as_p }}#}
+
+                        {{ form.email.errors }}
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             {{ form.email }}
                         </div>
+
+                        {{ form.username.errors }}
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            {{ form.username }}
+                        </div>
+                        {{ form.password.errors }}
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            {{ form.password }}
+                            {{ form.password1 }}
                         </div>
+                        {{ form.password2.errors }}
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             {{ form.password2 }}
                         </div>
+
                         <div class="d-flex justify-content-center mt-3 login_container">
                             <button type="submit" name="button" class="btn login_btn">Register</button>
                         </div>

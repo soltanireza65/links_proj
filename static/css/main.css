@@ -113,10 +113,9 @@ input[type=password] {
   }
 }
 .user_card {
-  height: 400px;
   width: 350px;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border: 10px solid black;
   position: relative;
   display: flex;
@@ -453,14 +452,14 @@ h1 {
 }
 
 .profileImg {
-  /* margin-right: 5px; */
   float: left;
-  /* 50% 50% centers image in div */
-  background-size: auto 100%;
-  /* Interchange this value depending on prefering width vs. height */
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center center;
+  z-index: 2;
 }
 
 /* profile card */

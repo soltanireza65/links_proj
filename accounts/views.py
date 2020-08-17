@@ -1,9 +1,10 @@
 from django.contrib import messages, auth
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from accounts.forms import LoginForm, UserRegistrationForm, ProfileEditForm
+from accounts.forms import LoginForm, UserRegistrationForm, ProfileEditForm, RegForm
 from accounts.models import Profile
 from links.models import Link
 
@@ -64,12 +65,13 @@ def register(request):
 
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
+        # form = UserCreationForm(request.POST)
 
         if form.is_valid():
 
             new_user = form.save(commit=False)
 
-            new_user.set_password(form.cleaned_data['password'])
+            new_user.set_password(form.cleaned_data['password1'])
 
             new_user.save()
 
@@ -78,6 +80,8 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegistrationForm()
+        # form = UserCreationForm()
+        # form = RegForm()
     return render(request, 'accounts/register.html', {'form': form})
 
 

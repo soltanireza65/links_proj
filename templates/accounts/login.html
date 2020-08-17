@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-    Register
+    Login
 {% endblock %}
 {% block content %}
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
-            <div class="user_card mt-3" style="height: 400px;">
+            <div class="user_card " style="height: 400px;">
                 <div class="px-4 form_container">
                     <form method="post" class="mb-3">
                         {% csrf_token %}
 
+{#                        {{ form.username.errors }}#}
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             {{ form.username }}
                         </div>
+{#                        {{ form.password.errors }}#}
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>

@@ -217,15 +217,18 @@ h1 {
 }
 
 .profileImg {
-  /* margin-right: 5px; */
   float: left;
-  //background: url() 50% 50% no-repeat;
-  /* 50% 50% centers image in div */
-  background-size: auto 100%;
-  /* Interchange this value depending on prefering width vs. height */
   width: 40px;
   height: 40px;
   border-radius: 50%;
+
+
+  //background-image: url({{ request.user.profile.avatar.url }});
+  background-color: #fff;
+  background-size: cover;
+  background-position: center center;
+  z-index: 2;
+
 }
 
 /* profile card */
