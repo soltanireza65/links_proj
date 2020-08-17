@@ -11,6 +11,7 @@ from links.models import Link
 def public_profile(request, uname):
     # TODO check if uname exists
     user = User.objects.filter(username__exact=uname).get()
+    # links = Link.objects.filter(user=request.user)
     if user:
         # TODO action.create(profile_viewed)
         # TODO page_viewed++
@@ -43,7 +44,7 @@ def profile_edit(request):
         form = ProfileEditForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
-            return redirect('public_profile')
+            return redirect('public_profile', request.user.username)
         else:
             messages.error(request, 'Failed to Update')
             return redirect('profile_edit')

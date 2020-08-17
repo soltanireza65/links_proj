@@ -4,32 +4,18 @@
 {% block title %}
     Public Profile
 {% endblock %}
-{% block content %}
+{% block content %}{% csrf_token %}
     <!-- profile -->
     <div class="container mt-5 bg__">
         <div class="row">
-            <!-- profile card -->
             <div class="col-lg-3 col-md-12">
-                <!-- Grid column -->
-
-                <!-- Card -->
                 <div class="card testimonial-card shadow mb-5">
-                    <!-- Background color -->
                     <div class="card-up indigo"></div>
-
-                    <!-- Avatar -->
-                    <div class="avatar mx-auto white" >
-                        <img  height="100" src="
-                        {% if user.profile.avatar %}
-                        {{ user.profile.avatar.url }}
-                        {% else %}
-                        {% static 'img/profilePic.png' %}
-                        {% endif %}
-                        " class="rounded-circle img-responsive" alt="profilePic"/>
-                    </div>
-
+                    <img style=" background-image:url({{ request.user.profile.avatar.url }});"
+                         class="profileImg img-fluid img-responsive  avatar mx-auto white"
+                         alt=""
+                         src=""/>
                     <div class="card-body">
-                        <!-- accont Name -->
                         <h4 class="card-title mt-2"><strong>
                             {% if user.profile.display_name %}
                                 {{ user.profile.display_name }}
@@ -37,9 +23,7 @@
                                 Display Name
                             {% endif %}
                         </strong></h4>
-
                         <hr class="mb-3"/>
-                        <!-- job title -->
                         <div class="text-left">
                             <h5>Bio</h5>
                             <p>
@@ -48,29 +32,20 @@
                                 {% endif %}
                             </p>
                         </div>
-                        {#                        <button class="btn btn-block btn-color">cantact</button>#}
                         <a class="btn btn-block btn-color" href="mailto:{{ user.email }}">cantact</a>
                     </div>
-                    <!-- Card -->
                 </div>
-                <!-- Card -->
             </div>
-            <!-- link list view -->
             <div class="col-lg-9 col-md-12 px-5">
                 {% for link in links %}
-                    <a href="{{ link.url }}">
-
+                    <a href="{{ link.url }}" class="" onclick="IncClick('{{ link.id }}')">
                         <div class="listItem shadow pl-3 pt-3 pb-1 mb-2 bg-white font-link border-card">
                             <div class="d-flex justify-content-between align-items-center">
-                                {#                            <img class="" width="50" src="{{ link.image.url }}" alt="">#}
                                 <div class="rounded-circle align-middle" style="flex: 1">
-                                    {#                                    <img class="rounded-circle" width="50" src="{% static 'img/link.jpg' %}" alt="">#}
                                     {% if link.image %}
                                         <img class="rounded-circle" width="50" src="{{ link.image.url }}" alt="">
                                     {% else %}
-                                        <img class="rounded-circle" width="50" src="{% static 'img/link.jpg' %}" alt="">
                                     {% endif %}
-
                                 </div>
                                 <div class="" style="flex: 8">
                                     <h5>{{ link.title }}</h5>
@@ -86,99 +61,102 @@
                             </div>
                         </div>
                     </a>
-
                 {% endfor %}
-                <hr>
-                <p>Social Media Profiles</p>
-                {% if instagram_url %}
-                    <a href="{{ instagram_url }}">
+                {% if facebook_url or youtube_url or instagram_url or twitter_url %}
+                    <hr>
+                    <p>Social Media Profiles</p>
+                    {% if instagram_url %}
+                        <a href="{{ instagram_url }}">
 
-                        <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="" style="flex: 1"><i class="fab fa-instagram fa-3x"></i></div>
-                                <div class="" style="flex: 8">
-                                    <h5>Instagram</h5>
-                                    <p class="text-muted">
+                            <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="" style="flex: 1"><i class="fab fa-instagram fa-3x"></i></div>
+                                    <div class="" style="flex: 8">
+                                        <h5>Instagram</h5>
+                                        <p class="text-muted">
                                     <span><img class="globe-outline" src="{% static 'img/globe-outline.svg' %}"
                                                alt=""/>{{ instagram_url }}</span>
-                                    </p>
-                                </div>
-                                <div class="pr-0" style="flex: 1">
-                                    <img class="arrow-redo-outline ml-0" src="{% static 'img/arrow-redo-outline.svg' %}"
-                                         alt=""/>
+                                        </p>
+                                    </div>
+                                    <div class="pr-0" style="flex: 1">
+                                        <img class="arrow-redo-outline ml-0"
+                                             src="{% static 'img/arrow-redo-outline.svg' %}"
+                                             alt=""/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
 
-                {% endif %}
-                {% if youtube_url %}
-                    <a href="{{ youtube_url }}">
-                        <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="" style="flex: 1"><i class="fab fa-youtube-square fa-3x"></i></div>
-                                <div class="" style="flex: 8">
-                                    <h5>Youtube</h5>
-                                    <p class="text-muted">
+                    {% endif %}
+                    {% if youtube_url %}
+                        <a href="{{ youtube_url }}">
+                            <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="" style="flex: 1"><i class="fab fa-youtube-square fa-3x"></i></div>
+                                    <div class="" style="flex: 8">
+                                        <h5>Youtube</h5>
+                                        <p class="text-muted">
                                     <span><img class="globe-outline" src="{% static 'img/globe-outline.svg' %}" alt=""/>
                                         {{ youtube_url }}
                                     </span>
-                                    </p>
-                                </div>
-                                <div class="pr-0" style="flex: 1">
-                                    <img class="arrow-redo-outline ml-0" src="{% static 'img/arrow-redo-outline.svg' %}"
-                                         alt=""/>
+                                        </p>
+                                    </div>
+                                    <div class="pr-0" style="flex: 1">
+                                        <img class="arrow-redo-outline ml-0"
+                                             src="{% static 'img/arrow-redo-outline.svg' %}"
+                                             alt=""/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                {% endif %}
-                {% if twitter_url %}
-                    <a href="{{ twitter_url }}">
-                        <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="" style="flex: 1"><i class="fab fa-twitter-square fa-3x"></i></div>
-                                <div class="" style="flex: 8">
-                                    <h5>Youtube</h5>
-                                    <p class="text-muted">
+                        </a>
+                    {% endif %}
+                    {% if twitter_url %}
+                        <a href="{{ twitter_url }}">
+                            <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="" style="flex: 1"><i class="fab fa-twitter-square fa-3x"></i></div>
+                                    <div class="" style="flex: 8">
+                                        <h5>Youtube</h5>
+                                        <p class="text-muted">
                                     <span><img class="globe-outline" src="{% static 'img/globe-outline.svg' %}" alt=""/>
                                         {{ youtube_url }}
                                     </span>
-                                    </p>
-                                </div>
-                                <div class="pr-0" style="flex: 1">
-                                    <img class="arrow-redo-outline ml-0" src="{% static 'img/arrow-redo-outline.svg' %}"
-                                         alt=""/>
+                                        </p>
+                                    </div>
+                                    <div class="pr-0" style="flex: 1">
+                                        <img class="arrow-redo-outline ml-0"
+                                             src="{% static 'img/arrow-redo-outline.svg' %}"
+                                             alt=""/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                {% endif %}
-                {% if facebook_url %}
-                    <a href="{{ facebook_url }}">
-                        <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="" style="flex: 1"><i class="fab fa-facebook-square fa-3x"></i></div>
-                                <div class="" style="flex: 8">
-                                    <h5>Facebook</h5>
-                                    <p class="text-muted">
+                        </a>
+                    {% endif %}
+                    {% if facebook_url %}
+                        <a href="{{ facebook_url }}">
+                            <div class="listItem shadow pl-3 pt-3 pb-1 bg-white font-link border-card mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="" style="flex: 1"><i class="fab fa-facebook-square fa-3x"></i></div>
+                                    <div class="" style="flex: 8">
+                                        <h5>Facebook</h5>
+                                        <p class="text-muted">
                                     <span><img class="globe-outline" src="{% static 'img/globe-outline.svg' %}" alt=""/>
                                         {{ facebook_url }}
                                     </span>
-                                    </p>
-                                </div>
-                                <div class="pr-0" style="flex: 1">
-                                    <img class="arrow-redo-outline ml-0" src="{% static 'img/arrow-redo-outline.svg' %}"
-                                         alt=""/>
+                                        </p>
+                                    </div>
+                                    <div class="pr-0" style="flex: 1">
+                                        <img class="arrow-redo-outline ml-0"
+                                             src="{% static 'img/arrow-redo-outline.svg' %}"
+                                             alt=""/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    {% endif %}
+
                 {% endif %}
             </div>
         </div>
-        <!-- link list view -->
     </div>
-    <!-- profile -->
-
 {% endblock %}

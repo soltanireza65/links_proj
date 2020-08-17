@@ -113,8 +113,8 @@ USE_TZ = True
 
 
 AUTHENTICATION_BACKENDS = [
-    # 'django.contrib.auth.backends.ModelBackend',
     'accounts.authentication.EmailAuthBackend',
+    # 'django.contrib.auth.backends.ModelBackend',
     # 'social_core.backends.facebook.FacebookOAuth2',
     # 'social_core.backends.twitter.TwitterOAuth',
     # 'social_core.backends.google.GoogleOAuth2',
@@ -133,18 +133,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# AUTHENTICATION_BACKENDS = (
-#     ('django.contrib.auth.backends.ModelBackend'),
-# )
-
-
 # Email Confs
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = '*********'
-# EMAIL_HOST_PASSWORD = '*********'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''

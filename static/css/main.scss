@@ -1,4 +1,5 @@
-// @import "partials/scrollbar";
+@import "partials/scrollbar";
+@import "partials/form";
 @import "partials/input";
 @import "partials/snackbar";
 @import "partials/auth";
@@ -34,10 +35,10 @@ a:active {
 }
 
 html,
-body,
-.page_container {
+body, {
   margin: 0;
   padding: 0;
+  height: 100%;
   //height: 100vh;
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
@@ -46,12 +47,13 @@ body,
 
 }
 
-#footer{
-  position: absolute;
+#footer {
+  //position: absolute;
   //width: 100%;
-  margin: 0;
-  bottom: 0;
+  //margin: 0;
+  //bottom: 0;
 }
+
 /* landing page */
 :root {
   --container-bg-color: rgba(0, 0, 0, 0.781);
@@ -234,6 +236,7 @@ h1 {
 
 .testimonial-card .avatar {
   width: 120px;
+  height: 120px;
   margin-top: -60px;
   overflow: hidden;
   border: 5px solid #fff;
@@ -328,7 +331,6 @@ h1 {
   --btn-color: #a4b9ba;
   --btn-color-hover: #589f97;
 }
-
 
 
 .bg__ {

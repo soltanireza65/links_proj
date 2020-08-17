@@ -21,7 +21,7 @@
 //          }
 //      }
 // });
-var csrf = $('input[name=csrfmiddlewaretoken]').val()
+let csrf = $('input[name=csrfmiddlewaretoken]').val()
 
 function IncClick(id) {
     // alert('Event: ', e)

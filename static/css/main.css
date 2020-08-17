@@ -1,3 +1,32 @@
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  outline: 1px solid slategrey;
+}
+
+.errorlist {
+  background-color: #333;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 6px 4px;
+  list-style: none;
+  border-radius: 4px;
+  border-left: 6px solid red;
+}
+
+.helptext ul {
+  list-style: none;
+  padding-left: 10px;
+  font-size: 0.8rem;
+}
+
 input[type=email],
 input[type=password] {
   height: 50px;
@@ -264,19 +293,13 @@ a:active {
 }
 
 html,
-body,
-.page_container {
+body {
   margin: 0;
   padding: 0;
+  height: 100%;
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
   background-color: #c3d0d9;
-}
-
-#footer {
-  position: absolute;
-  margin: 0;
-  bottom: 0;
 }
 
 /* landing page */
@@ -448,6 +471,7 @@ h1 {
 
 .testimonial-card .avatar {
   width: 120px;
+  height: 120px;
   margin-top: -60px;
   overflow: hidden;
   border: 5px solid #fff;

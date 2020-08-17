@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from common.decorators import ajax_required
-from links.forms import LinkCreateForm, LinkUpdateForm
+from links.forms import LinkForm
 from links.models import Link
 from stats.models import Click
 
@@ -44,7 +44,7 @@ def link_clicked(request):
 @login_required
 def link_create(request):
     if request.method == "POST":
-        form = LinkCreateForm(request.POST, request.FILES)
+        form = LinkForm(request.POST, request.FILES)
         if form.is_valid():
             cd = form.cleaned_data
             new_link = form.save(commit=False)
@@ -54,7 +54,7 @@ def link_create(request):
             messages.success(request, 'Link Added Successfully')
             return redirect('link_list')
     else:
-        form = LinkCreateForm(data=request.GET)
+        form = LinkForm(data=request.GET)
 
     context = {
         'form': form,
@@ -65,10 +65,10 @@ def link_create(request):
 
 def link_edit(request, link_id):
     link = Link.objects.get(id=link_id)
-    form = LinkUpdateForm(instance=link)
+    form = LinkForm(instance=link)
 
     if request.method == "POST":
-        form = LinkUpdateForm(request.POST, instance=link)
+        form = LinkForm(request.POST, request.FILES, instance=link)
         if form.is_valid():
             # cd = form.cleaned_data
             form.save()

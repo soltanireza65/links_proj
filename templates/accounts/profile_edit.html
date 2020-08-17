@@ -39,9 +39,16 @@
                             {% csrf_token %}
                             <div class="d-flex">
                                 <div class="col-lg-3 col-sm-12">
-                                    <div class="d-flex justify-content-center">
-                                        <img class="profile-photo justify-content-center"
-                                             src="{% if user.profile.avatar %} {{ user.profile.avatar.url }} {% else %} {% static 'img/profilePic.png' %} {% endif %}"
+                                    <div class="d-flex justify-content-center ">
+                                        <img class="profile-photo justify-content-center "
+                                             style="background-image:url(
+                                                     {% if user.profile.avatar %}
+                                                         {{ user.profile.avatar.url }}
+                                                     {% else %}
+                                                         {% static 'img/profilePic.png' %}
+                                                     {% endif %}
+                                                     );"
+                                             src=" {{ user.profile.avatar.url }}"
                                              alt=""/>
                                     </div>
                                 </div>
